@@ -289,6 +289,7 @@ class Handlers(object):
             return
 
         resp_json = self.req.response.json()
+        self.req.response.close()
         self.config.logger.debug("request http_path:%s, response status code:%d, response body:%s" % (
             self.req.http_path, self.req.response.status_code, resp_json))
         if isinstance(resp_json, dict):
